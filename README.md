@@ -1,3 +1,4 @@
-# Template Quarto Revealjs site
+# Quarto slides
 
-You will need to run `quarto publish gh-pages` once locally before deploying this template.
+A collection of slides made using Quarto.
+

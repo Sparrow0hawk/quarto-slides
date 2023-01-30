@@ -1,8 +1,12 @@
 ---
-title: "Template Revealjs Quarto site"
-format: revealjs
+title: "Quarto Collection Index"
+format: html
 ---
 
-This is a Quarto website.
+This is a blank index page for my Quarto slides collection.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Slides:
+
+- Some talk
+- Another talk
+- TBC talk
