@@ -3,10 +3,10 @@ title: "Git Branching"
 format: revealjs
 ---
 
-# Plan for today
+## Plan for today
 
 ```{mermaid}
-%%| fig-height: 2
+%%| fig-height: 6
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': true, 'rotateCommitLabel': true}} }%%
 
 gitGraph
@@ -24,3 +24,4 @@ gitGraph
     commit id: "wrap up"
 
 ```
+
