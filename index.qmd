@@ -5,8 +5,6 @@ format: html
 
 This is a blank index page for my Quarto slides collection.
 
-Slides:
+## Slides:
 
-- Some talk
-- Another talk
-- TBC talk
+- [Git Branching lecture](./2023-02-06-git-branch-lecture.qmd)
