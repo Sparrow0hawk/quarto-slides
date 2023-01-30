@@ -10,15 +10,17 @@ format: revealjs
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': true, 'rotateCommitLabel': true}} }%%
 
 gitGraph
-    commit id: "1"
-    commit id: "2"
-    branch basics
-    commit id: "3"
-    commit id: "4"
-    branch example
-    commit id: "5"
-    checkout basics
-    commit id: "6"
-    merge example
+    commit id: "intro"
+    branch feat1
+    commit id: "basics"
+    branch feat2
+    commit id: "GitHub"
+    branch feat3
+    commit id: "team branches"
+    branch finalfeat
+    commit id: "CI/CD"
+    checkout main
+    merge finalfeat
+    commit id: "wrap up"
 
 ```
