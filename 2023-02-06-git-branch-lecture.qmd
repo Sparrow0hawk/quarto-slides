@@ -1,0 +1,24 @@
+---
+title: "Git Branching"
+format: revealjs
+---
+
+# Plan for today
+
+```{mermaid}
+%%| fig-height: 2
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': true, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit id: "1"
+    commit id: "2"
+    branch basics
+    commit id: "3"
+    commit id: "4"
+    branch example
+    commit id: "5"
+    checkout basics
+    commit id: "6"
+    merge example
+
+```
