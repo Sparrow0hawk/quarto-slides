@@ -201,3 +201,11 @@ gitGraph
 - Use automation tools to check pull requests, create releases and even ship to production 🚛
 - All powered through DVCS like GitHub, Gitlab, Azure DevOps
 
+# Merging this all back together...
+
+## Summary 
+
+- Git branches are a tool for safely working with copies of source code
+- Branches enable teams of software developers to work effectively across a codebase
+- Branching strategies and rules help safeguard this process
+- Git branches integrate as a core part of modern DevOps pipelines
