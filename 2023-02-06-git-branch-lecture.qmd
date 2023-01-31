@@ -30,7 +30,8 @@ gitGraph
 
 # Basics
 
-## Collaboration
+
+# Collaboration
 
 Branches help with colaboration through two mechanisms:
 
