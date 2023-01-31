@@ -183,5 +183,14 @@ gitGraph
 
 ## Branch rules
 
+- Branch strategies only work when rules are defined
+- Rules such as:
+  - ❌ Not possible to push to `main` 
+  - ✅ Code reviews required before a PR is merged 
+  - ✅ Automated workflows (build and test) must pass before merge 
+
+## 
+
+![](./assets/img/2023-02-06-git-branch-lecture/git-branch-pull-ci.png)
 
 # Branches and CI/CD
