@@ -30,6 +30,22 @@ gitGraph
 
 # Basics
 
+## What is branching?
+
+- Git branches are lightweight, moveables pointers to a commit
+- `main` is the default branch created whenever you create a git repository
+```{mermaid}
+%%| fig-height: 3
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+
+```
 
 # Collaboration
 
