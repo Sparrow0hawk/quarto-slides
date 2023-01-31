@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto Collection Index",
+    "section": "",
+    "text": "This is a blank index page for my Quarto slides collection."
+  },
+  {
+    "objectID": "index.html#slides",
+    "href": "index.html#slides",
+    "title": "Quarto Collection Index",
+    "section": "Slides:",
+    "text": "Slides:\n\nGit Branching lecture"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#collaboration",
+    "href": "2023-02-06-git-branch-lecture.html#collaboration",
+    "title": "Git Branching",
+    "section": "Collaboration",
+    "text": "Collaboration\nBranches help with colaboration through two mechanisms:\n\nForks\nPull requests"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#forks",
+    "href": "2023-02-06-git-branch-lecture.html#forks",
+    "title": "Git Branching",
+    "section": "Forks",
+    "text": "Forks\n\nA fork is a form of branching\nWe take some existing code\nBranch off from it\nBut crucially development on the fork takes a different direction\nXEMACS and GNU Emacs\nMost Linux distros are forks"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#pull-requests",
+    "href": "2023-02-06-git-branch-lecture.html#pull-requests",
+    "title": "Git Branching",
+    "section": "Pull requests",
+    "text": "Pull requests\n\nTools like GitHub/BitBucket/Gitlab made it easier to share code and share code changes\nRather than sharing patch files, we can suggest code changes\nWe can make forks of code on these platforms, make a change and suggest the maintainer pull these suggestions back into the codebase\nThis workflow of sharing changes back is called a pull request"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#branching-strategies",
+    "href": "2023-02-06-git-branch-lecture.html#branching-strategies",
+    "title": "Git Branching",
+    "section": "Branching strategies",
+    "text": "Branching strategies\n\nHow do teams work collaboratively on a code base?\nNeed to define strategies for writing, merging and deploying code\nCommon set of rules for a dev team"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#gitflow",
+    "href": "2023-02-06-git-branch-lecture.html#gitflow",
+    "title": "Git Branching",
+    "section": "Gitflow 1",
+    "text": "Gitflow 1\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit tag: \"tag-0.1\"\n    branch hotfix1\n    branch release\n    branch develop\n    checkout develop\n    commit\n    commit\n    branch feat1\n    checkout develop\n    commit\n    branch feat2\n    checkout feat1\n    commit\n    commit\n    checkout develop\n    checkout feat2\n    commit\n    checkout hotfix1\n    commit\n    checkout main\n    merge hotfix1 tag: \"tag-0.2\"\n    checkout develop\n    merge hotfix1\n    checkout develop\n    merge feat1\n    checkout release\n    merge develop tag: \"tag-1.0\"\n\n\n\n\n\n\n\n\n\nOriginal gitflow blog post"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#github-flow",
+    "href": "2023-02-06-git-branch-lecture.html#github-flow",
+    "title": "Git Branching",
+    "section": "GitHub Flow 1",
+    "text": "GitHub Flow 1\n\nEach branch should have discrete purpose (feature/fix)\nSuggest it back as a pull request\nDelete branch when accepted\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    branch user2-fix\n    checkout main\n    commit\n    branch user1-feat\n    commit\n    checkout user2-fix\n    commit\n    commit\n    checkout user1-feat\n    checkout user1-feat\n    commit tag: \"PR submitted\"\n    checkout main\n    merge user1-feat tag: \"PR accepted\"\n    checkout user2-fix\n    commit\n\n\n\n\n\n\n\n\n GitHub docs"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#trunk-based",
+    "href": "2023-02-06-git-branch-lecture.html#trunk-based",
+    "title": "Git Branching",
+    "section": "Trunk based 1",
+    "text": "Trunk based 1\n\nEveryone commits to the main branch\nEnforces small commits\nmain should always be releaseable\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    commit\n    commit\n    branch release-v1\n    commit tag: \"v1.0\"\n    checkout main\n    commit\n    commit\n    checkout release-v1\n    merge main tag: \"v1.1\"\n    checkout main\n    commit\n    branch release-v2\n    commit tag: \"v2.0\"\n    checkout main\n    commit\n    commit\n\n\n\n\n\n\n\n\nTrunk based development"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#branch-rules",
+    "href": "2023-02-06-git-branch-lecture.html#branch-rules",
+    "title": "Git Branching",
+    "section": "Branch rules",
+    "text": "Branch rules"
+  }
+]
