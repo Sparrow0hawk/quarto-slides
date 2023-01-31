@@ -1,9 +1,12 @@
 ---
 title: "Git Branching"
-format: revealjs
+format: 
+    revealjs:
+        navigation-mode: grid
+        controls-layout: bottom-right
 ---
 
-## Plan for today
+# Plan for today
 
 ```{mermaid}
 %%| fig-height: 6
@@ -14,7 +17,7 @@ gitGraph
     branch feat1
     commit id: "basics"
     branch feat2
-    commit id: "GitHub"
+    commit id: "colab"
     branch feat3
     commit id: "team branches"
     branch finalfeat
@@ -25,3 +28,143 @@ gitGraph
 
 ```
 
+# Basics
+
+## Collaboration
+
+Branches help with colaboration through two mechanisms:
+
+- Forks
+- Pull requests
+
+## Forks
+
+- A fork is a form of branching
+- We take some existing code
+- Branch off from it
+- But crucially development on the fork takes a different direction
+- XEMACS and GNU Emacs
+- Most Linux distros are forks
+
+## Pull requests
+
+- Tools like GitHub/BitBucket/Gitlab made it easier to share code and share code changes
+- Rather than sharing patch files, we can suggest code changes
+- We can make forks of code on these platforms, make a change and suggest the maintainer pull these suggestions back into the codebase
+- This workflow of sharing changes back is called a **pull request**
+
+##
+
+![](./assets/img/2023-02-06-git-branch-lecture/git-branch-pullrequest.png)
+
+# Teams and branches
+
+## Branching strategies
+
+- How do teams work collaboratively on a code base?
+- Need to define strategies for writing, merging and deploying code
+- Common set of rules for a dev team
+
+## Gitflow ^[Original [gitflow blog post](https://nvie.com/posts/a-successful-git-branching-model/)]
+
+```{mermaid}
+%%| fig-height: 4
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit tag: "tag-0.1"
+    branch hotfix1
+    branch release
+    branch develop
+    checkout develop
+    commit
+    commit
+    branch feat1
+    checkout develop
+    commit
+    branch feat2
+    checkout feat1
+    commit
+    commit
+    checkout develop
+    checkout feat2
+    commit
+    checkout hotfix1
+    commit
+    checkout main
+    merge hotfix1 tag: "tag-0.2"
+    checkout develop
+    merge hotfix1
+    checkout develop
+    merge feat1
+    checkout release
+    merge develop tag: "tag-1.0"
+
+```
+
+## GitHub Flow ^[ [GitHub docs](https://docs.github.com/en/get-started/quickstart/github-flow)]
+
+- Each branch should have discrete purpose (feature/fix)
+- Suggest it back as a pull request
+- Delete branch when accepted
+```{mermaid}
+%%| fig-height: 3
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    branch user2-fix
+    checkout main
+    commit
+    branch user1-feat
+    commit
+    checkout user2-fix
+    commit
+    commit
+    checkout user1-feat
+    checkout user1-feat
+    commit tag: "PR submitted"
+    checkout main
+    merge user1-feat tag: "PR accepted"
+    checkout user2-fix
+    commit
+```
+
+## Trunk based ^[[Trunk based development](https://trunkbaseddevelopment.com/)]
+
+- Everyone commits to the `main` branch 
+- Enforces small commits 
+- `main` should always be releaseable
+
+```{mermaid}
+%%| fig-height: 1.9
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    commit
+    commit
+    branch release-v1
+    commit tag: "v1.0"
+    checkout main
+    commit
+    commit
+    checkout release-v1
+    merge main tag: "v1.1"
+    checkout main
+    commit
+    branch release-v2
+    commit tag: "v2.0"
+    checkout main
+    commit
+    commit
+```
+
+
+## Branch rules
+
+
+# Branches and CI/CD
