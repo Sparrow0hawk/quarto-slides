@@ -194,3 +194,10 @@ gitGraph
 ![](./assets/img/2023-02-06-git-branch-lecture/git-branch-pull-ci.png)
 
 # Branches and CI/CD
+
+## Branching and DevOps
+
+- Branches present a unique mechanism by which to structure CI/CD 
+- Use automation tools to check pull requests, create releases and even ship to production 🚛
+- All powered through DVCS like GitHub, Gitlab, Azure DevOps
+
