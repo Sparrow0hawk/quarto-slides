@@ -47,6 +47,87 @@ gitGraph
 
 ```
 
+## Resolving branches
+
+- Branches allow us to separate out work in git
+- Need a mechanism to resolve one branch into another (often `main`)
+```{mermaid}
+%%| fig-height: 2.7
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+    checkout main
+    merge branch1
+```
+
+## Complicated resolutions
+
+- Say we worked on a branch but had to deploy a fix to `main` before merging
+
+```{mermaid}
+%%| fig-height: 2.7
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+    checkout main
+    commit
+
+```
+
+## Complicated resolutions
+
+- Option 1: Is to merge `main` into `branch1`
+
+```{mermaid}
+%%| fig-height: 2.4
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+    checkout main
+    commit
+    checkout branch1
+    merge main
+
+```
+
+- This preserves history but adds an extra merge commit
+
+## Complicated resolutions
+
+- Option 2: Is to rebase `branch1` ontop of `main`
+
+```{mermaid}
+%%| fig-height: 2.4
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+
+```
+
+- This rewrites history but keeps project history linear preventing merge commits
+- Rebasing should ***never*** be performed on a public branch
+
 # Collaboration
 
 Branches help with colaboration through two mechanisms:
