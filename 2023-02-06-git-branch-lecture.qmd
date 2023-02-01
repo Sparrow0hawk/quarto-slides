@@ -2,7 +2,7 @@
 title: "Git Branching"
 format: 
     revealjs:
-        navigation-mode: grid
+        navigation-mode: linear
         controls-layout: bottom-right
 ---
 
@@ -144,7 +144,9 @@ gitGraph
 
 # Collaboration
 
-Branches help with colaboration through two mechanisms:
+## DVCS and Branches
+
+Tools like GitHub, Bitbucket, Gitlab expand the functionality of branches with mechanisms like:
 
 - Forks
 - Pull requests
@@ -165,7 +167,7 @@ Branches help with colaboration through two mechanisms:
 - We can make forks of code on these platforms, make a change and suggest the maintainer pull these suggestions back into the codebase
 - This workflow of sharing changes back is called a **pull request**
 
-##
+## 
 
 ![](./assets/img/2023-02-06-git-branch-lecture/git-branch-pullrequest.png)
 
