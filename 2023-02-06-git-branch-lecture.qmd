@@ -13,6 +13,13 @@ format:
 - Otherwise there'll be time for questions at the end
 - Link to slides will be shared via email
 
+# `whoami`
+
+- Alex Coleman
+- Research Software Engineer in IT Services
+- Background in cell biology, then data science, now software engineering
+- Languages I'm into: Python🐍 Rust🦀 R®
+
 # Plan for today
 
 ```{mermaid}
