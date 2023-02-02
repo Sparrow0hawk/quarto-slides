@@ -1,24 +1,45 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Quarto Collection Index",
-    "section": "",
-    "text": "This is a blank index page for my Quarto slides collection."
-  },
-  {
-    "objectID": "index.html#slides",
-    "href": "index.html#slides",
-    "title": "Quarto Collection Index",
-    "section": "Slides:",
-    "text": "Slides:\n\nGit Branching lecture"
-  },
-  {
-    "objectID": "2023-02-06-git-branch-lecture.html#collaboration",
-    "href": "2023-02-06-git-branch-lecture.html#collaboration",
+    "objectID": "2023-02-06-git-branch-lecture.html#what-is-branching",
+    "href": "2023-02-06-git-branch-lecture.html#what-is-branching",
     "title": "Git Branching",
-    "section": "Collaboration",
-    "text": "Collaboration\nBranches help with colaboration through two mechanisms:\n\nForks\nPull requests"
+    "section": "What is branching?",
+    "text": "What is branching?\n\nGit branches are lightweight, moveables pointers to a commit\nmain is the default branch created whenever you create a git repository\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#resolving-branches",
+    "href": "2023-02-06-git-branch-lecture.html#resolving-branches",
+    "title": "Git Branching",
+    "section": "Resolving branches",
+    "text": "Resolving branches\n\nBranches allow us to separate out work in git\nNeed a mechanism to resolve one branch into another (often main)\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n    checkout main\n    merge branch1"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#complicated-resolutions",
+    "href": "2023-02-06-git-branch-lecture.html#complicated-resolutions",
+    "title": "Git Branching",
+    "section": "Complicated resolutions",
+    "text": "Complicated resolutions\n\nSay we worked on a branch but had to deploy a fix to main before merging\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n    checkout main\n    commit"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#complicated-resolutions-1",
+    "href": "2023-02-06-git-branch-lecture.html#complicated-resolutions-1",
+    "title": "Git Branching",
+    "section": "Complicated resolutions",
+    "text": "Complicated resolutions\n\nOption 1: Is to merge main into branch1\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n    checkout main\n    commit\n    checkout branch1\n    merge main\n\n\n\n\n\n\n\n\n\n\nThis preserves history but adds an extra merge commit"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#complicated-resolutions-2",
+    "href": "2023-02-06-git-branch-lecture.html#complicated-resolutions-2",
+    "title": "Git Branching",
+    "section": "Complicated resolutions",
+    "text": "Complicated resolutions\n\nOption 2: Is to rebase branch1 ontop of main\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n\n\n\n\n\n\n\n\n\n\nThis rewrites history but keeps project history linear preventing merge commits\nRebasing should never be performed on a public branch"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#dvcs-and-branches",
+    "href": "2023-02-06-git-branch-lecture.html#dvcs-and-branches",
+    "title": "Git Branching",
+    "section": "DVCS and Branches",
+    "text": "DVCS and Branches\nTools like GitHub, Bitbucket, Gitlab expand the functionality of branches with mechanisms like:\n\nForks\nPull requests"
   },
   {
     "objectID": "2023-02-06-git-branch-lecture.html#forks",
@@ -67,6 +88,34 @@
     "href": "2023-02-06-git-branch-lecture.html#branch-rules",
     "title": "Git Branching",
     "section": "Branch rules",
-    "text": "Branch rules"
+    "text": "Branch rules\n\nBranch strategies only work when rules are defined\nRules such as:\n\n❌ Not possible to push to main\n✅ Code reviews required before a PR is merged\n✅ Automated workflows (build and test) must pass before merge"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#branching-and-devops",
+    "href": "2023-02-06-git-branch-lecture.html#branching-and-devops",
+    "title": "Git Branching",
+    "section": "Branching and DevOps",
+    "text": "Branching and DevOps\n\nBranches present a unique mechanism by which to structure CI/CD\nUse automation tools to check pull requests, create releases and even ship to production 🚛\nAll powered through DVCS like GitHub, Gitlab, Azure DevOps"
+  },
+  {
+    "objectID": "2023-02-06-git-branch-lecture.html#summary",
+    "href": "2023-02-06-git-branch-lecture.html#summary",
+    "title": "Git Branching",
+    "section": "Summary",
+    "text": "Summary\n\nGit branches are a tool for safely working with copies of source code\nBranches enable teams of software developers to work effectively across a codebase\nBranching strategies and rules help safeguard this process\nGit branches integrate as a core part of modern DevOps pipelines"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto Collection Index",
+    "section": "",
+    "text": "This is a blank index page for my Quarto slides collection."
+  },
+  {
+    "objectID": "index.html#slides",
+    "href": "index.html#slides",
+    "title": "Quarto Collection Index",
+    "section": "Slides:",
+    "text": "Slides:\n\nGit Branching lecture"
   }
 ]

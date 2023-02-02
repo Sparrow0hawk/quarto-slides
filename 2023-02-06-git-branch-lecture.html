@@ -7,7 +7,7 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.313">
+  <meta name="generator" content="quarto-1.2.335">
 
   <title>Quarto-slides - Git Branching</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -332,6 +332,26 @@
 </div>
 
 </section>
+<section id="ground-rules" class="title-slide slide level1 center">
+<h1>Ground rules</h1>
+<ul>
+<li><span style="color:goldenrod;font-weight:bold;">Golden rule</span>: No such thing as a stupid question</li>
+<li>Raise your hand if you want to ask something and i’ll get to you</li>
+<li>Otherwise there’ll be time for questions at the end</li>
+<li>Link to slides will be shared via email</li>
+</ul>
+</section>
+
+<section id="whoami" class="title-slide slide level1 center">
+<h1><code>whoami</code></h1>
+<ul>
+<li>Alex Coleman</li>
+<li>Research Software Engineer in IT Services</li>
+<li>Background in cell biology, then data science, now software engineering</li>
+<li>Languages I’m into: Python🐍 Rust🦀 R®</li>
+</ul>
+</section>
+
 <section id="plan-for-today" class="title-slide slide level1 center">
 <h1>Plan for today</h1>
 <div class="cell" data-reveal="true" data-fig-height="6">
@@ -369,9 +389,166 @@ gitGraph
 <h1>Basics</h1>
 
 </section>
-<section id="collaboration" class="slide level2">
-<h2>Collaboration</h2>
-<p>Branches help with colaboration through two mechanisms:</p>
+<section id="what-is-branching" class="slide level2">
+<h2>What is branching?</h2>
+<ul>
+<li>Git branches are lightweight, moveables pointers to a commit</li>
+<li><code>main</code> is the default branch created whenever you create a git repository</li>
+</ul>
+<div class="cell" data-reveal="true" data-fig-height="3">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="resolving-branches" class="slide level2">
+<h2>Resolving branches</h2>
+<ul>
+<li>Branches allow us to separate out work in git</li>
+<li>Need a mechanism to resolve one branch into another (often <code>main</code>)</li>
+</ul>
+<div class="cell" data-reveal="true" data-fig-height="2.7">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-3">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+    checkout main
+    merge branch1
+</pre>
+<div id="mermaid-tooltip-3" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="complicated-resolutions" class="slide level2">
+<h2>Complicated resolutions</h2>
+<ul>
+<li>Say we worked on a branch but had to deploy a fix to <code>main</code> before merging</li>
+</ul>
+<div class="cell" data-reveal="true" data-fig-height="2.7">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-4">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+    checkout main
+    commit
+
+</pre>
+<div id="mermaid-tooltip-4" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="complicated-resolutions-1" class="slide level2">
+<h2>Complicated resolutions</h2>
+<ul>
+<li>Option 1: Is to merge <code>main</code> into <code>branch1</code></li>
+</ul>
+<div class="cell" data-reveal="true" data-fig-height="2.4">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-5">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+    checkout main
+    commit
+    checkout branch1
+    merge main
+
+</pre>
+<div id="mermaid-tooltip-5" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>This preserves history but adds an extra merge commit</li>
+</ul>
+</section>
+<section id="complicated-resolutions-2" class="slide level2">
+<h2>Complicated resolutions</h2>
+<ul>
+<li>Option 2: Is to rebase <code>branch1</code> ontop of <code>main</code></li>
+</ul>
+<div class="cell" data-reveal="true" data-fig-height="2.4">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-6">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+
+gitGraph
+    commit
+    commit
+    commit
+    commit
+    branch branch1
+    commit
+
+</pre>
+<div id="mermaid-tooltip-6" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>This rewrites history but keeps project history linear preventing merge commits</li>
+<li>Rebasing should <strong><em>never</em></strong> be performed on a public branch</li>
+</ul>
+</section></section>
+<section>
+<section id="collaboration" class="title-slide slide level1 center">
+<h1>Collaboration</h1>
+
+</section>
+<section id="dvcs-and-branches" class="slide level2">
+<h2>DVCS and Branches</h2>
+<p>Tools like GitHub, Bitbucket, Gitlab expand the functionality of branches with mechanisms like:</p>
 <ul>
 <li>Forks</li>
 <li>Pull requests</li>
@@ -420,7 +597,7 @@ gitGraph
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-7">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
 
 gitGraph
     commit tag: "tag-0.1"
@@ -452,7 +629,7 @@ gitGraph
     merge develop tag: "tag-1.0"
 
 </pre>
-<div id="mermaid-tooltip-2" class="mermaidTooltip">
+<div id="mermaid-tooltip-7" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -471,7 +648,7 @@ gitGraph
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-3">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-8">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
 
 gitGraph
     commit
@@ -492,7 +669,7 @@ gitGraph
     checkout user2-fix
     commit
 </pre>
-<div id="mermaid-tooltip-3" class="mermaidTooltip">
+<div id="mermaid-tooltip-8" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -511,7 +688,7 @@ gitGraph
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-4">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-9">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%
 
 gitGraph
     commit
@@ -534,7 +711,7 @@ gitGraph
     commit
     commit
 </pre>
-<div id="mermaid-tooltip-4" class="mermaidTooltip">
+<div id="mermaid-tooltip-9" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -544,15 +721,51 @@ gitGraph
 <aside><ol class="aside-footnotes"><li id="fn3"><p><a href="https://trunkbaseddevelopment.com/">Trunk based development</a></p></li></ol></aside></section>
 <section id="branch-rules" class="slide level2">
 <h2>Branch rules</h2>
-</section></section>
+<ul>
+<li>Branch strategies only work when rules are defined</li>
+<li>Rules such as:
+<ul>
+<li>❌ Not possible to push to <code>main</code></li>
+<li>✅ Code reviews required before a PR is merged</li>
+<li>✅ Automated workflows (build and test) must pass before merge</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+
+<img data-src="./assets/img/2023-02-06-git-branch-lecture/git-branch-pull-ci.png" class="r-stretch"></section></section>
+<section>
 <section id="branches-and-cicd" class="title-slide slide level1 center">
 <h1>Branches and CI/CD</h1>
+
+</section>
+<section id="branching-and-devops" class="slide level2">
+<h2>Branching and DevOps</h2>
+<ul>
+<li>Branches present a unique mechanism by which to structure CI/CD</li>
+<li>Use automation tools to check pull requests, create releases and even ship to production 🚛</li>
+<li>All powered through DVCS like GitHub, Gitlab, Azure DevOps</li>
+</ul>
+</section></section>
+<section>
+<section id="merging-this-all-back-together" class="title-slide slide level1 center">
+<h1>Merging this all back together…</h1>
+
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Git branches are a tool for safely working with copies of source code</li>
+<li>Branches enable teams of software developers to work effectively across a codebase</li>
+<li>Branching strategies and rules help safeguard this process</li>
+<li>Git branches integrate as a core part of modern DevOps pipelines</li>
+</ul>
 
 <div class="footer footer-default">
 
 </div>
-</section>
-
+</section></section>
 
     </div>
   </div>
@@ -647,7 +860,7 @@ gitGraph
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'grid',
+        navigationMode: 'linear',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,
