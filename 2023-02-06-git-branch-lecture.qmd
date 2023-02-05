@@ -94,7 +94,7 @@ gitGraph
     branch branch1
     commit
     checkout main
-    commit
+    commit tag: "Fix added here"
 
 ```
 
@@ -113,7 +113,7 @@ gitGraph
     branch branch1
     commit
     checkout main
-    commit
+    commit tag: "Fix added here"
     checkout branch1
     merge main
 
@@ -133,7 +133,7 @@ gitGraph
     commit
     commit
     commit
-    commit
+    commit tag: "Fix added here"
     branch branch1
     commit
 
