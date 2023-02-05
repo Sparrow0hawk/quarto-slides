@@ -295,8 +295,11 @@ gitGraph
 ## Branching and DevOps
 
 - Branches present a unique mechanism by which to structure CI/CD 
-- Use automation tools to check pull requests, create releases and even ship to production 🚛
-- All powered through DVCS like GitHub, Gitlab, Azure DevOps
+- Use automation tools to: 
+  - check pull requests✅
+  - create releases🎁 
+  - and even ship to production 🚛
+- All powered through CI/CD tools like GitHub actions, TravisCI, Jenkins, GitLab CI/CD, Azure DevOps
 
 # Merging this all back together...
 
