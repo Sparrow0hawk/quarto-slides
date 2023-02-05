@@ -18,21 +18,21 @@
     "href": "2023-02-06-git-branch-lecture.html#complicated-resolutions",
     "title": "Git Branching",
     "section": "Complicated resolutions",
-    "text": "Complicated resolutions\n\nSay we worked on a branch but had to deploy a fix to main before merging\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n    checkout main\n    commit"
+    "text": "Complicated resolutions\n\nSay we worked on a branch but had to deploy a fix to main before merging\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n    checkout main\n    commit tag: \"Fix added here\""
   },
   {
     "objectID": "2023-02-06-git-branch-lecture.html#complicated-resolutions-1",
     "href": "2023-02-06-git-branch-lecture.html#complicated-resolutions-1",
     "title": "Git Branching",
     "section": "Complicated resolutions",
-    "text": "Complicated resolutions\n\nOption 1: Is to merge main into branch1\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n    checkout main\n    commit\n    checkout branch1\n    merge main\n\n\n\n\n\n\n\n\n\n\nThis preserves history but adds an extra merge commit"
+    "text": "Complicated resolutions\n\nOption 1: Is to merge main into branch1\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n    checkout main\n    commit tag: \"Fix added here\"\n    checkout branch1\n    merge main\n\n\n\n\n\n\n\n\n\n\nThis preserves history but adds an extra merge commit"
   },
   {
     "objectID": "2023-02-06-git-branch-lecture.html#complicated-resolutions-2",
     "href": "2023-02-06-git-branch-lecture.html#complicated-resolutions-2",
     "title": "Git Branching",
     "section": "Complicated resolutions",
-    "text": "Complicated resolutions\n\nOption 2: Is to rebase branch1 ontop of main\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    commit\n    branch branch1\n    commit\n\n\n\n\n\n\n\n\n\n\nThis rewrites history but keeps project history linear preventing merge commits\nRebasing should never be performed on a public branch"
+    "text": "Complicated resolutions\n\nOption 2: Is to rebase branch1 ontop of main\n\n\n\n\n\n%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true,'showCommitLabel': false, 'rotateCommitLabel': true}} }%%\n\ngitGraph\n    commit\n    commit\n    commit\n    commit tag: \"Fix added here\"\n    branch branch1\n    commit\n\n\n\n\n\n\n\n\n\n\nThis rewrites history but keeps project history linear preventing merge commits\nRebasing should never be performed on a public branch"
   },
   {
     "objectID": "2023-02-06-git-branch-lecture.html#dvcs-and-branches",
@@ -95,7 +95,7 @@
     "href": "2023-02-06-git-branch-lecture.html#branching-and-devops",
     "title": "Git Branching",
     "section": "Branching and DevOps",
-    "text": "Branching and DevOps\n\nBranches present a unique mechanism by which to structure CI/CD\nUse automation tools to check pull requests, create releases and even ship to production 🚛\nAll powered through DVCS like GitHub, Gitlab, Azure DevOps"
+    "text": "Branching and DevOps\n\nBranches present a unique mechanism by which to structure CI/CD\nUse automation tools to:\n\ncheck pull requests✅\ncreate releases🎁\nand even ship to production 🚛\n\nAll powered through CI/CD tools like GitHub actions, TravisCI, Jenkins, GitLab CI/CD, Azure DevOps"
   },
   {
     "objectID": "2023-02-06-git-branch-lecture.html#summary",
