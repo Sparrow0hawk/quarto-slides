@@ -9,7 +9,7 @@ format:
 # Ground rules
 
 - <span style="color:goldenrod;font-weight:bold;">Golden rule</span>: No such thing as a stupid question
-- Raise your hand if you want to ask something and i'll get to you
+- Raise your hand if you want to ask something and I'll get to you
 - Otherwise there'll be time for questions at the end
 - Link to slides will be shared via email
 
