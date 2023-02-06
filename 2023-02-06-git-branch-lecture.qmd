@@ -4,6 +4,7 @@ format:
     revealjs:
         navigation-mode: linear
         controls-layout: bottom-right
+image: assets/img/2023-02-06-git-branch-lecture/git-branch-og.png
 ---
 
 # Ground rules
