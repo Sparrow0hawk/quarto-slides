@@ -4,5 +4,5 @@ project:
 website:
   title: "Quarto-slides"
   site-url: https://sparrow0hawk.github.io/quarto-slides
-
-
+  twitter-card: true
+  open-graph: true
