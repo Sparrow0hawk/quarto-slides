@@ -1,0 +1,84 @@
+---
+title: "Why Rust for research 🦀"
+format: 
+    revealjs:
+        navigation-mode: linear
+        controls-layout: bottom-right
+image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
+---
+
+# What is Rust?
+
+- Programming language that came out of Mozilla
+- Designed with an emphasis on security, peformance and usability 
+- Initially popular for systems based programming but **very** flexible
+
+# What is great about Rust?
+
+```rust
+fn main() {
+    println!("Rust is great!")
+}
+```
+
+## Safety
+
+- Rust enforces memory safety
+- The borrow checker within the compiler tracks object lifetime of references at compile time
+- Strongly and statically typed: all types must be known at compile time
+
+## Performance
+
+- No garbage collection
+- Built ontop of LLVM toolchain
+
+## Flexiblity
+
+- Initially popular in the systems programming space
+- But now applied to:
+  - Embedded systems
+  - Web (strong support for web assembly)
+  - Online services
+  - Machine learning backend ([Hugging Face Tokenizers](https://github.com/huggingface/tokenizers), [Pola.rs](https://www.pola.rs/))
+
+## Zero cost abstractions
+
+## The compiler
+
+## The toolchain
+
+- Rustup
+- Cargo
+- crates.io
+
+## Python integration
+
+- [PyO3](https://github.com/PyO3/pyo3)
+- [maturin](https://github.com/PyO3/maturin)
+
+## The community
+
+- Rust Book
+- This 
+
+# What is not so great about Rust...
+
+
+```rust
+error[E0369]: cannot multiply `&str` by `{integer}`
+ --> src/main.rs:3:17
+  |
+3 |     hard = hard * 20;
+  |            ---- ^ -- {integer}
+  |            |
+  |            &str
+
+For more information about this error, try `rustc --explain E0369`.
+error: could not compile `playground` due to previous error
+```
+
+## The compiler
+
+## The learning curve
+
+# Rust for research?
