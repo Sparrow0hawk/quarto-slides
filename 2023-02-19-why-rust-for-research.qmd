@@ -93,3 +93,10 @@ note: consider changing this parameter type in function `count_length` to borrow
 
 # Rust for research?
 
+# Thanks for listening
+
+## Further reading/watching
+
+- [Considering Rust talk - Jon Gjengset](https://www.youtube.com/watch?v=DnT-LUQgc7s&ab_channel=JonGjengset)
+- [Why scientists are turning to Rust - Nature](https://www.nature.com/articles/d41586-020-03382-2)
+
