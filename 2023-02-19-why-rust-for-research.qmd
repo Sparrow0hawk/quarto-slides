@@ -24,7 +24,7 @@ fn main() {
 ## Safety
 
 - Rust enforces memory safety
-- The borrow checker within the compiler tracks object lifetime of references at compile time
+- Compiler checks references (pointers) at compile time
 - Strongly and statically typed: all types must be known at compile time
 
 ## Performance
@@ -43,13 +43,21 @@ fn main() {
 
 ## Zero cost abstractions
 
+- Rust strives to provide high level concepts like Iterators, Generics, Traits
+- But at no additional cost to use at runtime
+
 ## The compiler
+
+- The compiler messages are helpful!
+- Compiler knows about tests and documentation by default
+- Enforces thread safety through types
 
 ## The toolchain
 
-- Rustup
-- Cargo
-- crates.io
+- Rustup, toolchain installer and manager
+- Cargo, build system and package manager
+- crates.io, package repository
+- Clippy, Rust linter
 
 ## Python integration
 
@@ -59,22 +67,24 @@ fn main() {
 ## The community
 
 - Rust Book
-- This 
+- This Week in Rust
 
 # What is not so great about Rust...
 
 
 ```rust
-error[E0369]: cannot multiply `&str` by `{integer}`
- --> src/main.rs:3:17
+error[E0382]: borrow of moved value: `hard`
+ --> src/main.rs:4:26
   |
-3 |     hard = hard * 20;
-  |            ---- ^ -- {integer}
-  |            |
-  |            &str
-
-For more information about this error, try `rustc --explain E0369`.
-error: could not compile `playground` due to previous error
+2 |     let hard = String::from("Rust is hard");
+  |         ---- move occurs because `hard` has type `String`, which does not implement the `Copy` trait
+3 |     let size = count_length(hard);
+  |                             ---- value moved here
+4 |     println!("{}: {:?}", hard, size);
+  |                          ^^^^ value borrowed here after move
+  |
+note: consider changing this parameter type in function `count_length` to borrow instead if owning the value isn't necessary
+ --> src/main.rs:8:20
 ```
 
 ## The compiler
@@ -82,3 +92,4 @@ error: could not compile `playground` due to previous error
 ## The learning curve
 
 # Rust for research?
+
