@@ -97,8 +97,9 @@ fn main() {
 
 ## Python integration
 
-- [PyO3](https://github.com/PyO3/pyo3)
-- [maturin](https://github.com/PyO3/maturin)
+::: {.r-stack}
+![](./assets/img/2023-02-19-why-rust-for-research/py03-github.png)
+:::
 
 ## The community
 
