@@ -126,6 +126,9 @@ note: consider changing this parameter type in function `count_length` to borrow
 
 ## The compiler
 
+- People often describe "fighting with the borrow checker"
+- The strictness of the compiler can be infuriating
+
 ## The learning curve
 
 # Rust for research?
