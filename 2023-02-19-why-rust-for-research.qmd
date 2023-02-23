@@ -133,6 +133,12 @@ note: consider changing this parameter type in function `count_length` to borrow
 
 # Rust for research?
 
+## Already happening
+
+- [Pola.rs](), high performance data frame library written in Rust
+- [bio]() crate, implements a number of bioinformatics algorithms in Rust
+- [Status of Rust support for machine learning](https://www.arewelearningyet.com/)
+
 # Do I have to rewrite it in Rust?
 
 No...
