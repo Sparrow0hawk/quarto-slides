@@ -133,6 +133,10 @@ note: consider changing this parameter type in function `count_length` to borrow
 
 # Rust for research?
 
+# Do I have to rewrite it in Rust?
+
+No...
+
 # Thanks for listening
 
 ## Your next steps
