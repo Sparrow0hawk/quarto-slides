@@ -135,6 +135,12 @@ note: consider changing this parameter type in function `count_length` to borrow
 
 # Thanks for listening
 
+## Your next steps
+
+- Go read the [Rust book](https://doc.rust-lang.org/book/)
+- Try out [Rustlings](https://github.com/rust-lang/rustlings)
+
+
 ## Further reading/watching
 
 - [Considering Rust talk - Jon Gjengset](https://www.youtube.com/watch?v=DnT-LUQgc7s&ab_channel=JonGjengset)
