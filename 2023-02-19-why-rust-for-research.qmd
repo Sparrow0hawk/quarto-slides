@@ -1,11 +1,23 @@
 ---
-title: "Why Rust for research 🦀"
+title: "Why Rust for Research 🦀"
 format: 
     revealjs:
         navigation-mode: linear
         controls-layout: bottom-right
 image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
 ---
+
+## What this talk is
+
+- An introduction to the Rust Language and its features
+- A perspective on why it could be a good language for research
+- Some thoughts on why it might not be the right language for your research
+
+## What this talk is not {background-color="black"}
+
+- A deep dive into the language
+- A comprehensive comparison of Rust and other languages
+- A call for you to write everything in Rust
 
 # What is Rust?
 
@@ -57,36 +69,17 @@ fn main() {
 }
 ```
 
-## Safety
+## Features
 
+::: {.incremental}
 - Rust enforces memory safety
-- Compiler checks references (pointers) at compile time
-- Strongly and statically typed: all types must be known at compile time
-
-## Performance
-
-- No garbage collection
-- Built ontop of LLVM toolchain
-
-## Flexiblity
-
-- Initially popular in the systems programming space
-- But now applied to:
-  - Embedded systems
-  - Web (strong support for web assembly)
-  - Online services
-  - Machine learning backend ([Hugging Face Tokenizers](https://github.com/huggingface/tokenizers), [Pola.rs](https://www.pola.rs/))
-
-## Zero cost abstractions
-
-- Rust strives to provide high level concepts like Iterators, Generics, Traits
-- But at no additional cost to use at runtime
-
-## The compiler
-
-- The compiler messages are helpful!
-- Compiler knows about tests and documentation by default
-- Enforces thread safety through types
+- Strongly and statically typed
+- Speed via LLVM toolchain
+- Flexibility
+- Zero cost abstractions
+- A helpful compiler
+- Toolchain
+:::
 
 ## The toolchain
 
@@ -133,6 +126,10 @@ note: consider changing this parameter type in function `count_length` to borrow
 
 # Rust for research?
 
+## 
+- The toolchain means if you can compile it, it runs and someone else can do it too
+- Great for performance critical code
+
 ## Already happening
 
 - [Pola.rs](https://www.pola.rs/), high performance data frame library written in Rust
@@ -141,7 +138,14 @@ note: consider changing this parameter type in function `count_length` to borrow
 
 # Do I have to rewrite it in Rust?
 
+. . . 
+
 No...
+
+## Why Rust might not be for your research?
+
+- Learning the language is hard
+- Is the tradeoff of safety v. speed-of-development worth it?
 
 # Thanks for listening
 
