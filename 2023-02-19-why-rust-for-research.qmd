@@ -1,5 +1,5 @@
 ---
-title: "Why Rust for Research 🦀"
+title: "Why Rust for Research🦀"
 format: 
     revealjs:
         navigation-mode: linear
@@ -25,13 +25,29 @@ image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
 - Designed with an emphasis on security, peformance and usability 
 - Initially popular for systems based programming but **very** flexible
 
+## Features
+
+::: {.incremental}
+- Rust enforces memory safety
+- Strongly and statically typed
+- Speed via LLVM toolchain
+- Flexibility
+- Zero cost abstractions
+- A helpful compiler
+- Toolchain
+:::
+
 ## Features: Ownership and borrowing
 
+::: {.incremental}
 - System by which Rust manages memory and avoids common issues
 - Rules of ownership:
     1. Each value must have an owner
     2. Can only be one owner at a time
     3. When the owner goes out of scope, the value is dropped
+:::
+
+. . .
 
 ```rust
 // create some data on the heap
@@ -68,18 +84,6 @@ fn main() {
     println!("Rust is great!")
 }
 ```
-
-## Features
-
-::: {.incremental}
-- Rust enforces memory safety
-- Strongly and statically typed
-- Speed via LLVM toolchain
-- Flexibility
-- Zero cost abstractions
-- A helpful compiler
-- Toolchain
-:::
 
 ## The toolchain
 
