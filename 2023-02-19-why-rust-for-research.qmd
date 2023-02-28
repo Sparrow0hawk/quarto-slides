@@ -92,10 +92,22 @@ fn main() {
 - crates.io, package repository
 - Clippy, Rust linter
 
-## Python integration
+## A little Rust in your... C
+
+::: {.r-stack}
+![](./assets/img/2023-02-19-why-rust-for-research/cbingen.png)
+:::
+
+## A little Rust in your... Python
 
 ::: {.r-stack}
 ![](./assets/img/2023-02-19-why-rust-for-research/py03-github.png)
+:::
+
+## A little Rust in your... R
+
+::: {.r-stack}
+![](./assets/img/2023-02-19-why-rust-for-research/extendr.png)
 :::
 
 ## The community
