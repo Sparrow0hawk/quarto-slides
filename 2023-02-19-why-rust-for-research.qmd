@@ -111,8 +111,11 @@ fn main() {
 
 ## The community
 
-- Rust Book
+- The Rust Book
 - This Week in Rust
+- r/rust
+- Rust Discord
+- Rust Zulip
 
 # What is not so great about Rust...
 
