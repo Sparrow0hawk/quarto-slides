@@ -21,20 +21,19 @@ image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
 
 # What is Rust?
 
-- Programming language that came out of Mozilla
+- Compiled programming language that came out of Mozilla
 - Designed with an emphasis on security, peformance and usability 
 - Initially popular for systems based programming but **very** flexible
 
 ## Features
 
 ::: {.incremental}
-- Rust enforces memory safety
+- Memory safety
 - Strongly and statically typed
-- Speed via LLVM toolchain
-- Flexibility
+- Speed
 - Zero cost abstractions
 - A helpful compiler
-- Toolchain
+- Modern toolchain
 :::
 
 ## Features: Ownership and borrowing
