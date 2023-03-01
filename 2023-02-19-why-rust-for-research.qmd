@@ -1,0 +1,263 @@
+---
+title: "Why Rust for Research🦀"
+format: 
+    revealjs:
+        navigation-mode: linear
+        controls-layout: bottom-right
+image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
+---
+
+## `whoami`
+
+- [Alex Coleman](https://github.com/Sparrow0hawk)
+- Research Software Engineer in IT Services
+- Background in cell biology, then data science, now software engineering
+- Software Sustainability Institute Fellow 2023 looking at software security
+- Languages I'm into: Python🐍 Rust🦀 R®
+
+
+## What this talk is
+
+- An introduction to the Rust Language and its features
+- A perspective on why it could be a good language for research
+- Some thoughts on why it might not be the right language for your research
+
+## What this talk is not {background-color="black"}
+
+- A deep dive into the language
+- A comprehensive comparison of Rust and other languages
+- A call for you to write everything in Rust
+
+# What is Rust?
+
+- Compiled programming language that came out of Mozilla
+- Designed with an emphasis on security, peformance and usability 
+- Initially popular for systems based programming but **very** flexible
+
+## Features
+
+::: {.incremental}
+- Memory safety
+- Strongly and statically typed
+- Speed
+- Zero cost abstractions
+- A helpful compiler
+- Modern toolchain
+:::
+
+## Features: Ownership and borrowing
+
+::: {.incremental}
+- System by which Rust manages memory and avoids common issues
+- Rules of ownership:
+    1. Each value must have an owner
+    2. Can only be one owner at a time
+    3. When the owner goes out of scope, the value is dropped
+:::
+
+. . .
+
+```rust
+// create some data on the heap
+let s1 = String::from("hello");
+// this invalidates s1 because ownership of the data has moved to s2
+let s2 = s1;
+
+// this errors because s1 is no longer accessible
+println!("{}, world!", s1);
+```
+
+## Ownership and borrowing (cont.)
+
+- When passing data to a function we pass ownership to that function
+- Sometimes we don't want data to go out of scope after being used in a function, so we **borrow** it with a reference
+- Compiler checks these references via the _borrow checker_
+```rust
+fn main() {
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1);
+    println!("The length of '{}' is {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+```
+
+## Fearless Concurrency
+
+- This ownership model extends to writing concurrent code
+- The compiler works to guarantee against data races in concurrent code
+- Using threads still requires us to be careful but the compiler protects against common issues
+
+## No NULL type
+
+- Lots of programming languages have a NULL or None type
+- This means we often have to hardcode testing if something is `None`
+
+```python
+AttributeError: 'NoneType' object has no attribute 'foo'
+```
+- Rust uses an optional type and forces you to handle the `None` case
+
+## No NULL type (cont.)
+
+- Take this example in R
+
+```R
+val <- switch("foo", "foo" = 1, "bar" = 2, "foobar" = 3)
+val
+[1] 1
+```
+
+- But if I give an option no enumerated
+
+```R
+val <- switch("magic", "foo" = 1, "bar" = 2, "foobar" = 3)
+val
+[1] NULL
+```
+
+## No NULL type (cont.)
+
+- Rust won't compile this without the final catch-all arm
+
+```rust
+let input: &str = "foo";
+let val: i32 = match input {
+  "foo" => 1,
+  "bar" => 2,
+  "foobar" => 3,
+  _ => panic!("Something bad happened here!")
+};
+println!("{}", val)
+```
+
+
+# What is great about Rust?
+
+```rust
+fn main() {
+    println!("Rust is great!")
+}
+```
+
+## The toolchain
+
+::: {.incremental}
+- Rustup, toolchain installer and manager
+- Cargo, build system and package manager
+- crates.io, package repository
+- Clippy, Rust linter
+:::
+
+## A little Rust in your... C
+
+::: {.r-stack}
+![](./assets/img/2023-02-19-why-rust-for-research/cbingen.png)
+:::
+
+## A little Rust in your... Python
+
+::: {.r-stack}
+![](./assets/img/2023-02-19-why-rust-for-research/py03-github.png)
+:::
+
+## A little Rust in your... R
+
+::: {.r-stack}
+![](./assets/img/2023-02-19-why-rust-for-research/extendr.png)
+:::
+
+## The community
+
+- [The Rust Book](https://doc.rust-lang.org/book/)
+- [This Week in Rust](https://this-week-in-rust.org/)
+- [r/rust](https://www.reddit.com/r/rust/)
+- [Rust Discord](https://discord.com/invite/rust-lang)
+- [Rust Zulip](https://rust-lang.zulipchat.com/)
+
+# What is not so great about Rust...
+
+
+```rust
+error[E0382]: borrow of moved value: `hard`
+ --> src/main.rs:4:26
+  |
+2 |     let hard = String::from("Rust is hard");
+  |         ---- move occurs because `hard` has type `String`, which does not implement the `Copy` trait
+3 |     let size = count_length(hard);
+  |                             ---- value moved here
+4 |     println!("{}: {:?}", hard, size);
+  |                          ^^^^ value borrowed here after move
+  |
+note: consider changing this parameter type in function `count_length` to borrow instead if owning the value isn't necessary
+ --> src/main.rs:8:20
+```
+
+## The compiler
+
+- People often describe "fighting with the borrow checker"
+- The strictness of the compiler can be infuriating
+- Is slow compared to C and C++
+
+## Bounds checking
+
+- To avoid buffer overflow Rust implements bounds checking when indexing arrays
+```rust
+let array = [0, 1, 2, 3];
+let a = array[1]; // works
+let b = array[6]; // not a valid index
+```
+- This adds an overhead at runtime
+
+
+## The learning curve
+
+![](./assets/img/2023-02-19-why-rust-for-research/learning-curve.png)
+
+# Rust for research?
+
+## 
+- The toolchain makes it easy to distribute code
+- Great for performance critical code
+- Lots of resources to help learn
+- Better resource use means greener🌳
+
+## Already happening
+
+- [Pola.rs](https://www.pola.rs/), high performance data frame library written in Rust
+- [ndarray](https://docs.rs/ndarray/latest/ndarray/), n-dimensional array crate
+- [bio](https://crates.io/crates/bio) crate, implements a number of bioinformatics algorithms in Rust
+- [Status of Rust support for machine learning](https://www.arewelearningyet.com/)
+- [Rust MPI bindings](https://github.com/rsmpi/rsmpi)
+- [GPGPU support](https://www.arewelearningyet.com/gpu-computing/)
+
+# Do I have to rewrite it in Rust?
+
+. . . 
+
+No...
+
+## Why Rust might not be for your research?
+
+- Learning the language is hard
+- Is the tradeoff of safety v. speed-of-development worth it?
+- Is writing Rust sustainable in your research field/group?
+- Lacks the interactive programming experience of Jupyter/Rmarkdown
+
+# Thanks for listening
+
+## Your next steps
+
+- Go read the [Rust book](https://doc.rust-lang.org/book/)
+- Try out [Rustlings](https://github.com/rust-lang/rustlings)
+- Check out [The New Rustacean podcast](https://newrustacean.com/)
+- [Exercism Rust track](https://exercism.org/tracks/rust) 
+
+
+## Further reading/watching
+
+- [Considering Rust talk - Jon Gjengset](https://www.youtube.com/watch?v=DnT-LUQgc7s&ab_channel=JonGjengset)
+- [Why scientists are turning to Rust - Nature](https://www.nature.com/articles/d41586-020-03382-2)
+
