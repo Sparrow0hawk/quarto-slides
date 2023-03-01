@@ -76,6 +76,52 @@ fn calculate_length(s: &String) -> usize {
 }
 ```
 
+## No NULL type
+
+- Lots of programming languages have a NULL or None type
+- This means we often have to hardcode testing if something is `None`
+
+```python
+AttributeError: 'NoneType' object has no attribute 'foo'
+```
+- Rust uses an optional type and forces you to handle the `None` case
+
+## No NULL type (cont.)
+
+- Take this example in R
+
+```R
+val <- switch("foo", "foo" = 1, "bar" = 2, "foobar" = 3)
+val
+[1] 1
+```
+
+- But if I give an option no enumerated
+
+```R
+val <- switch("magic", "foo" = 1, "bar" = 2, "foobar" = 3)
+val
+[1] NULL
+```
+
+## No NULL type (cont.)
+
+- Rust won't compile this without the final catch-all arm
+
+```rust
+fn main() {
+    let input: &str = "foo";
+    let val: i32 = match input {
+      "foo" => 1,
+      "bar" => 2,
+      "foobar" => 3,
+      _ => panic!("Something bad happened here!")
+    };
+    println!("{}", val)
+}
+```
+
+
 # What is great about Rust?
 
 ```rust
