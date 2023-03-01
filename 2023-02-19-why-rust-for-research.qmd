@@ -85,6 +85,12 @@ fn calculate_length(s: &String) -> usize {
 }
 ```
 
+## Fearless Concurrency
+
+- This ownership model extends to writing concurrent code
+- The compiler works to guarantee against data races in concurrent code
+- Using threads still requires us to be careful but the compiler protects against common issues
+
 ## No NULL type
 
 - Lots of programming languages have a NULL or None type
