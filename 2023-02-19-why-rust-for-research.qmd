@@ -111,11 +111,11 @@ fn main() {
 
 ## The community
 
-- The Rust Book
-- This Week in Rust
-- r/rust
-- Rust Discord
-- Rust Zulip
+- [The Rust Book](https://doc.rust-lang.org/book/)
+- [This Week in Rust](https://this-week-in-rust.org/)
+- [r/rust](https://www.reddit.com/r/rust/)
+- [Rust Discord](https://discord.com/invite/rust-lang)
+- [Rust Zulip](https://rust-lang.zulipchat.com/)
 
 # What is not so great about Rust...
 
