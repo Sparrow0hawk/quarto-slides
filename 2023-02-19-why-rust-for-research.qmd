@@ -144,10 +144,12 @@ fn main() {
 
 ## The toolchain
 
+::: {.incremental}
 - Rustup, toolchain installer and manager
 - Cargo, build system and package manager
 - crates.io, package repository
 - Clippy, Rust linter
+:::
 
 ## A little Rust in your... C
 
