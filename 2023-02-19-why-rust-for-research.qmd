@@ -123,14 +123,14 @@ val
 - Rust won't compile this without the final catch-all arm
 
 ```rust
-    let input: &str = "foo";
-    let val: i32 = match input {
-      "foo" => 1,
-      "bar" => 2,
-      "foobar" => 3,
-      _ => panic!("Something bad happened here!")
-    };
-    println!("{}", val)
+let input: &str = "foo";
+let val: i32 = match input {
+  "foo" => 1,
+  "bar" => 2,
+  "foobar" => 3,
+  _ => panic!("Something bad happened here!")
+};
+println!("{}", val)
 ```
 
 
@@ -221,13 +221,17 @@ let b = array[6]; // not a valid index
 ## 
 - The toolchain makes it easy to distribute code
 - Great for performance critical code
+- Lots of resources to help learn
+- Better resource use means greener🌳
 
 ## Already happening
 
 - [Pola.rs](https://www.pola.rs/), high performance data frame library written in Rust
+- [ndarray](https://docs.rs/ndarray/latest/ndarray/), n-dimensional array crate
 - [bio](https://crates.io/crates/bio) crate, implements a number of bioinformatics algorithms in Rust
 - [Status of Rust support for machine learning](https://www.arewelearningyet.com/)
 - [Rust MPI bindings](https://github.com/rsmpi/rsmpi)
+- [GPGPU support](https://www.arewelearningyet.com/gpu-computing/)
 
 # Do I have to rewrite it in Rust?
 
@@ -239,6 +243,8 @@ No...
 
 - Learning the language is hard
 - Is the tradeoff of safety v. speed-of-development worth it?
+- Is writing Rust sustainable in your research field/group?
+- Lacks the interactive programming experience of Jupyter/Rmarkdown
 
 # Thanks for listening
 
@@ -246,6 +252,8 @@ No...
 
 - Go read the [Rust book](https://doc.rust-lang.org/book/)
 - Try out [Rustlings](https://github.com/rust-lang/rustlings)
+- Check out [The New Rustacean podcast](https://newrustacean.com/)
+- [Exercism Rust track](https://exercism.org/tracks/rust) 
 
 
 ## Further reading/watching
