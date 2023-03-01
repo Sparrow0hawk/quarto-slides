@@ -214,6 +214,8 @@ let b = array[6]; // not a valid index
 
 ## The learning curve
 
+![](./assets/img/2023-02-19-why-rust-for-research/learning-curve.png)
+
 # Rust for research?
 
 ## 
