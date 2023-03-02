@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.335">
 
-  <title>Quarto-slides - Why Rust for Research🦀</title>
+  <title>Why Rust for Research?🦀</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -381,10 +381,10 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Quarto-slides - Why Rust for Research🦀">
+<meta property="og:title" content="Why Rust for Research?🦀">
 <meta property="og:image" content="https://sparrow0hawk.github.io/quarto-slides/assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg">
 <meta property="og:site-name" content="Quarto-slides">
-<meta name="twitter:title" content="Quarto-slides - Why Rust for Research🦀">
+<meta name="twitter:title" content="Why Rust for Research?🦀">
 <meta name="twitter:image" content="https://sparrow0hawk.github.io/quarto-slides/assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -393,7 +393,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Why Rust for Research🦀</h1>
+  <h1 class="title">Why Rust for Research?🦀</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -406,13 +406,13 @@
 <li>Research Software Engineer in IT Services</li>
 <li>Background in cell biology, then data science, now software engineering</li>
 <li>Software Sustainability Institute Fellow 2023 looking at software security</li>
-<li>Languages I’m into: Python🐍 Rust🦀 R®</li>
+<li>Languages I’m into: Python🐍, Rust🦀, R®</li>
 </ul>
 </section>
 <section id="what-this-talk-is" class="slide level2">
 <h2>What this talk is</h2>
 <ul>
-<li>An introduction to the Rust Language and its features</li>
+<li>An introduction to the Rust language and its features</li>
 <li>A perspective on why it could be a good language for research</li>
 <li>Some thoughts on why it might not be the right language for your research</li>
 </ul>
@@ -425,9 +425,8 @@
 <li>A call for you to write everything in Rust</li>
 </ul>
 </section>
-<section>
-<section id="what-is-rust" class="title-slide slide level1 center">
-<h1>What is Rust?</h1>
+<section id="what-is-rust" class="slide level2">
+<h2>What is Rust?</h2>
 <ul>
 <li>Compiled programming language that came out of Mozilla</li>
 <li>Designed with an emphasis on security, peformance and usability</li>
@@ -439,8 +438,8 @@
 <div>
 <ul>
 <li class="fragment">Memory safety</li>
-<li class="fragment">Strongly and statically typed</li>
 <li class="fragment">Speed</li>
+<li class="fragment">Strongly and statically typed</li>
 <li class="fragment">Zero cost abstractions</li>
 <li class="fragment">A helpful compiler</li>
 <li class="fragment">Modern toolchain</li>
@@ -472,11 +471,14 @@
 </section>
 <section id="ownership-and-borrowing-cont." class="slide level2">
 <h2>Ownership and borrowing (cont.)</h2>
+<div>
 <ul>
-<li>When passing data to a function we pass ownership to that function</li>
-<li>Sometimes we don’t want data to go out of scope after being used in a function, so we <strong>borrow</strong> it with a reference</li>
-<li>Compiler checks these references via the <em>borrow checker</em></li>
+<li class="fragment">When passing data to a function we pass ownership to that function</li>
+<li class="fragment">Sometimes we don’t want data to go out of scope after being used in a function, so we <strong>borrow</strong> it with a reference</li>
+<li class="fragment">Compiler checks these references via the <em>borrow checker</em></li>
 </ul>
+</div>
+<div class="fragment">
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource rust number-lines code-with-copy"><code class="sourceCode rust"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">fn</span> main() <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">let</span> s1 <span class="op">=</span> <span class="dt">String</span><span class="pp">::</span>from(<span class="st">"hello"</span>)<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="kw">let</span> len <span class="op">=</span> calculate_length(<span class="op">&amp;</span>s1)<span class="op">;</span></span>
@@ -486,6 +488,7 @@
 <span id="cb2-7"><a href="#cb2-7"></a><span class="kw">fn</span> calculate_length(s<span class="op">:</span> <span class="op">&amp;</span><span class="dt">String</span>) <span class="op">-&gt;</span> <span class="dt">usize</span> <span class="op">{</span></span>
 <span id="cb2-8"><a href="#cb2-8"></a>    s<span class="op">.</span>len()</span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="fearless-concurrency" class="slide level2">
 <h2>Fearless Concurrency</h2>
@@ -499,7 +502,7 @@
 <h2>No NULL type</h2>
 <ul>
 <li>Lots of programming languages have a NULL or None type</li>
-<li>This means we often have to hardcode testing if something is <code>None</code></li>
+<li>This means we often have to remember to test if something is <code>None</code></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">AttributeError</span>: <span class="st">'NoneType'</span> <span class="bu">object</span> has no attribute <span class="st">'foo'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -534,13 +537,15 @@
 <span id="cb6-6"><a href="#cb6-6"></a>  _ <span class="op">=&gt;</span> <span class="pp">panic!</span>(<span class="st">"Something bad happened here!"</span>)</span>
 <span id="cb6-7"><a href="#cb6-7"></a><span class="op">};</span></span>
 <span id="cb6-8"><a href="#cb6-8"></a><span class="pp">println!</span>(<span class="st">"{}"</span><span class="op">,</span> val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
+</section>
 <section>
 <section id="what-is-great-about-rust" class="title-slide slide level1 center">
 <h1>What is great about Rust?</h1>
+<div class="fragment">
 <div class="sourceCode" id="cb7"><pre class="sourceCode numberSource rust number-lines code-with-copy"><code class="sourceCode rust"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">fn</span> main() <span class="op">{</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="pp">println!</span>(<span class="st">"Rust is great!"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="the-toolchain" class="slide level2">
 <h2>The toolchain</h2>
@@ -682,11 +687,14 @@
 <li><a href="https://www.youtube.com/watch?v=DnT-LUQgc7s&amp;ab_channel=JonGjengset">Considering Rust talk - Jon Gjengset</a></li>
 <li><a href="https://www.nature.com/articles/d41586-020-03382-2">Why scientists are turning to Rust - Nature</a></li>
 </ul>
+</section></section>
+<section id="questions" class="title-slide slide level1 center">
+<h1>Questions</h1>
 
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
