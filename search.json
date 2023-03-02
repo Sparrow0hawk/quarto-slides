@@ -2,168 +2,168 @@
   {
     "objectID": "2023-02-19-why-rust-for-research.html#whoami",
     "href": "2023-02-19-why-rust-for-research.html#whoami",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "whoami",
     "text": "whoami\n\nAlex Coleman\nResearch Software Engineer in IT Services\nBackground in cell biology, then data science, now software engineering\nSoftware Sustainability Institute Fellow 2023 looking at software security\nLanguages I’m into: Python🐍, Rust🦀, R®"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#what-this-talk-is",
     "href": "2023-02-19-why-rust-for-research.html#what-this-talk-is",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "What this talk is",
     "text": "What this talk is\n\nAn introduction to the Rust language and its features\nA perspective on why it could be a good language for research\nSome thoughts on why it might not be the right language for your research"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#what-this-talk-is-not",
     "href": "2023-02-19-why-rust-for-research.html#what-this-talk-is-not",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "What this talk is not",
     "text": "What this talk is not\n\nA deep dive into the language\nA comprehensive comparison of Rust and other languages\nA call for you to write everything in Rust"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#what-is-rust",
     "href": "2023-02-19-why-rust-for-research.html#what-is-rust",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "What is Rust?",
     "text": "What is Rust?\n\nCompiled programming language that came out of Mozilla\nDesigned with an emphasis on security, peformance and usability\nInitially popular for systems based programming but very flexible"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#features",
     "href": "2023-02-19-why-rust-for-research.html#features",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Features",
     "text": "Features\n\n\nMemory safety\nSpeed\nStrongly and statically typed\nZero cost abstractions\nA helpful compiler\nModern toolchain"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#features-ownership-and-borrowing",
     "href": "2023-02-19-why-rust-for-research.html#features-ownership-and-borrowing",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Features: Ownership and borrowing",
     "text": "Features: Ownership and borrowing\n\n\nSystem by which Rust manages memory and avoids common issues\nRules of ownership:\n\nEach value must have an owner\nCan only be one owner at a time\nWhen the owner goes out of scope, the value is dropped\n\n\n\n\n// create some data on the heap\nlet s1 = String::from(\"hello\");\n// this invalidates s1 because ownership of the data has moved to s2\nlet s2 = s1;\n\n// this errors because s1 is no longer accessible\nprintln!(\"{}, world!\", s1);"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#ownership-and-borrowing-cont.",
     "href": "2023-02-19-why-rust-for-research.html#ownership-and-borrowing-cont.",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Ownership and borrowing (cont.)",
     "text": "Ownership and borrowing (cont.)\n\n\nWhen passing data to a function we pass ownership to that function\nSometimes we don’t want data to go out of scope after being used in a function, so we borrow it with a reference\nCompiler checks these references via the borrow checker\n\n\n\nfn main() {\n    let s1 = String::from(\"hello\");\n    let len = calculate_length(&s1);\n    println!(\"The length of '{}' is {}.\", s1, len);\n}\n\nfn calculate_length(s: &String) -> usize {\n    s.len()\n}"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#fearless-concurrency",
     "href": "2023-02-19-why-rust-for-research.html#fearless-concurrency",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Fearless Concurrency",
     "text": "Fearless Concurrency\n\nThis ownership model extends to writing concurrent code\nThe compiler works to guarantee against data races in concurrent code\nUsing threads still requires us to be careful but the compiler protects against common issues"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#no-null-type",
     "href": "2023-02-19-why-rust-for-research.html#no-null-type",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "No NULL type",
     "text": "No NULL type\n\nLots of programming languages have a NULL or None type\nThis means we often have to remember to test if something is None\n\nAttributeError: 'NoneType' object has no attribute 'foo'\n\nRust uses an optional type and forces you to handle the None case"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#no-null-type-cont.",
     "href": "2023-02-19-why-rust-for-research.html#no-null-type-cont.",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "No NULL type (cont.)",
     "text": "No NULL type (cont.)\n\nTake this example in R\n\nval <- switch(\"foo\", \"foo\" = 1, \"bar\" = 2, \"foobar\" = 3)\nval\n[1] 1\n\nBut if I give an option no enumerated\n\nval <- switch(\"magic\", \"foo\" = 1, \"bar\" = 2, \"foobar\" = 3)\nval\n[1] NULL"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#no-null-type-cont.-1",
     "href": "2023-02-19-why-rust-for-research.html#no-null-type-cont.-1",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "No NULL type (cont.)",
     "text": "No NULL type (cont.)\n\nRust won’t compile this without the final catch-all arm\n\nlet input: &str = \"foo\";\nlet val: i32 = match input {\n  \"foo\" => 1,\n  \"bar\" => 2,\n  \"foobar\" => 3,\n  _ => panic!(\"Something bad happened here!\")\n};\nprintln!(\"{}\", val)"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#the-toolchain",
     "href": "2023-02-19-why-rust-for-research.html#the-toolchain",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "The toolchain",
     "text": "The toolchain\n\n\nRustup, toolchain installer and manager\nCargo, build system and package manager\ncrates.io, package repository\nClippy, Rust linter"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#a-little-rust-in-your-c",
     "href": "2023-02-19-why-rust-for-research.html#a-little-rust-in-your-c",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "A little Rust in your… C",
     "text": "A little Rust in your… C"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#a-little-rust-in-your-python",
     "href": "2023-02-19-why-rust-for-research.html#a-little-rust-in-your-python",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "A little Rust in your… Python",
     "text": "A little Rust in your… Python"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#a-little-rust-in-your-r",
     "href": "2023-02-19-why-rust-for-research.html#a-little-rust-in-your-r",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "A little Rust in your… R",
     "text": "A little Rust in your… R"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#the-community",
     "href": "2023-02-19-why-rust-for-research.html#the-community",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "The community",
     "text": "The community\n\nThe Rust Book\nThis Week in Rust\nr/rust\nRust Discord\nRust Zulip"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#the-compiler",
     "href": "2023-02-19-why-rust-for-research.html#the-compiler",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "The compiler",
     "text": "The compiler\n\nPeople often describe “fighting with the borrow checker”\nThe strictness of the compiler can be infuriating\nIs slow compared to C and C++"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#bounds-checking",
     "href": "2023-02-19-why-rust-for-research.html#bounds-checking",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Bounds checking",
     "text": "Bounds checking\n\nTo avoid buffer overflow Rust implements bounds checking when indexing arrays\n\nlet array = [0, 1, 2, 3];\nlet a = array[1]; // works\nlet b = array[6]; // not a valid index\n\nThis adds an overhead at runtime"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#the-learning-curve",
     "href": "2023-02-19-why-rust-for-research.html#the-learning-curve",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "The learning curve",
     "text": "The learning curve"
   },
   {
-    "objectID": "2023-02-19-why-rust-for-research.html#section",
-    "href": "2023-02-19-why-rust-for-research.html#section",
-    "title": "Why Rust for Research?🦀",
+    "objectID": "2023-02-19-why-rust-for-research.html#section-1",
+    "href": "2023-02-19-why-rust-for-research.html#section-1",
+    "title": "Quarto-slides",
     "section": "",
     "text": "The toolchain makes it easy to distribute code\nGreat for performance critical code\nLots of resources to help learn\nBetter resource use means greener🌳"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#already-happening",
     "href": "2023-02-19-why-rust-for-research.html#already-happening",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Already happening",
     "text": "Already happening\n\nPola.rs, high performance data frame library written in Rust\nndarray, n-dimensional array crate\nbio crate, implements a number of bioinformatics algorithms in Rust\nStatus of Rust support for machine learning\nRust MPI bindings\nGPGPU support"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#why-rust-might-not-be-for-your-research",
     "href": "2023-02-19-why-rust-for-research.html#why-rust-might-not-be-for-your-research",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Why Rust might not be for your research?",
     "text": "Why Rust might not be for your research?\n\nLearning the language is hard\nIs the tradeoff of safety v. speed-of-development worth it?\nIs writing Rust sustainable in your research field/group?\nLacks the interactive programming experience of Jupyter/Rmarkdown"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#your-next-steps",
     "href": "2023-02-19-why-rust-for-research.html#your-next-steps",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Your next steps",
     "text": "Your next steps\n\nGo read the Rust book\nTry out Rustlings\nCheck out The New Rustacean podcast\nExercism Rust track"
   },
   {
     "objectID": "2023-02-19-why-rust-for-research.html#further-readingwatching",
     "href": "2023-02-19-why-rust-for-research.html#further-readingwatching",
-    "title": "Why Rust for Research?🦀",
+    "title": "Quarto-slides",
     "section": "Further reading/watching",
     "text": "Further reading/watching\n\nConsidering Rust talk - Jon Gjengset\nWhy scientists are turning to Rust - Nature"
   },
