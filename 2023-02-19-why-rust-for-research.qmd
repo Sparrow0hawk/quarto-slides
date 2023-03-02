@@ -1,5 +1,5 @@
 ---
-title: "Why Rust for Research🦀"
+title: "Why Rust for Research?🦀"
 format: 
     revealjs:
         navigation-mode: linear
@@ -13,12 +13,12 @@ image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
 - Research Software Engineer in IT Services
 - Background in cell biology, then data science, now software engineering
 - Software Sustainability Institute Fellow 2023 looking at software security
-- Languages I'm into: Python🐍 Rust🦀 R®
+- Languages I'm into: Python🐍, Rust🦀, R®
 
 
 ## What this talk is
 
-- An introduction to the Rust Language and its features
+- An introduction to the Rust language and its features
 - A perspective on why it could be a good language for research
 - Some thoughts on why it might not be the right language for your research
 
@@ -28,7 +28,7 @@ image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
 - A comprehensive comparison of Rust and other languages
 - A call for you to write everything in Rust
 
-# What is Rust?
+## What is Rust?
 
 - Compiled programming language that came out of Mozilla
 - Designed with an emphasis on security, peformance and usability 
@@ -38,8 +38,8 @@ image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
 
 ::: {.incremental}
 - Memory safety
-- Strongly and statically typed
 - Speed
+- Strongly and statically typed
 - Zero cost abstractions
 - A helpful compiler
 - Modern toolchain
@@ -69,9 +69,14 @@ println!("{}, world!", s1);
 
 ## Ownership and borrowing (cont.)
 
+:::{.incremental}
 - When passing data to a function we pass ownership to that function
 - Sometimes we don't want data to go out of scope after being used in a function, so we **borrow** it with a reference
 - Compiler checks these references via the _borrow checker_
+:::
+
+. . .
+
 ```rust
 fn main() {
     let s1 = String::from("hello");
@@ -93,7 +98,7 @@ fn calculate_length(s: &String) -> usize {
 ## No NULL type
 
 - Lots of programming languages have a NULL or None type
-- This means we often have to hardcode testing if something is `None`
+- This means we often have to remember to test if something is `None`
 
 ```python
 AttributeError: 'NoneType' object has no attribute 'foo'
@@ -136,11 +141,14 @@ println!("{}", val)
 
 # What is great about Rust?
 
+. . . 
+
 ```rust
 fn main() {
     println!("Rust is great!")
 }
 ```
+
 
 ## The toolchain
 
@@ -261,3 +269,4 @@ No...
 - [Considering Rust talk - Jon Gjengset](https://www.youtube.com/watch?v=DnT-LUQgc7s&ab_channel=JonGjengset)
 - [Why scientists are turning to Rust - Nature](https://www.nature.com/articles/d41586-020-03382-2)
 
+# Questions
