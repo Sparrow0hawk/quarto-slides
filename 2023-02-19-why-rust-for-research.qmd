@@ -5,6 +5,7 @@ format:
         navigation-mode: linear
         controls-layout: bottom-right
 image: assets/img/2023-02-19-why-rust-for-research/rust-social-wide.jpg
+pagetitle: Why Rust for Research?🦀
 ---
 
 ## `whoami`
